@@ -1,18 +1,12 @@
 import scraping
-import pandas as pd
+import export_data
+import analytics
 
 #Get the informations from scraping function
 links , titles , authors , contents = scraping.scraping_output()
 
-#Make a dictionary from the dataset
-dataset = {"Link" : links,
-            "Title" : titles,
-            "Author" : authors,
-            "Content" : contents}
+#Export the data into a csv file
+export_data.publish_dataset_csv(links , titles , authors , contents , "Output_dataset.csv")
 
-#Convert the dataset into pandas dataframe
-df = pd.DataFrame(dataset, columns= ['Link', 'Title' , 'Author' , 'Content'])
-#print(df)
-
-#Export the dataframe into a csv file
-df.to_csv("Output_dataset.csv")
+#Get the word count for the news contents
+word_count = analytics.word_count(contents)
