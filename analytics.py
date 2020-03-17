@@ -6,14 +6,17 @@ from nltk.corpus import stopwords
 def word_count(texts):
 
     stop_words = stopwords.words('english')
-    word_counter = []
-    
+    total_texts = ""
+
     for i in range(0 , len(texts)):
         article = texts[i].lower()
-        words = re.findall('\w+' , article)
-        count = Counter(words)
-        count = [(word, count) for word, count in count.items() if word not in stop_words]
-        word_counter.append(count)
-        
-    return word_counter
+        total_texts = total_texts + article
+
+    words = re.findall('\w+' , total_texts)
+    count = Counter(words).most_common()
+    count = [(word , cnt) for word , cnt in count if word not in stop_words]
+    count = count[0 : 10]
+      
+      
+    return count
     

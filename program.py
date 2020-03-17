@@ -1,6 +1,7 @@
 import scraping
 import export_data
 import analytics
+import postgres_op
 
 #Get the informations from scraping function
 links , titles , authors , contents = scraping.scraping_output()
@@ -10,3 +11,8 @@ export_data.publish_dataset_csv(links , titles , authors , contents , "Output_da
 
 #Get the word count for the news contents
 word_count = analytics.word_count(contents)
+word_count = str(word_count)
+
+postgres_op.enter_word_count(word_count)
+
+print(type(word_count))
