@@ -10,13 +10,14 @@ def enter_word_count(word_count):
                                     database = "d3bpa14p78p94e")
 
         cursor = connection.cursor()
-        date = datetime.date(datetime.now())
-        time = datetime.time(datetime.now())
+        #date = datetime.date(datetime.now())
+        #time = datetime.time(datetime.now())
+        for word , count in word_count:
+            
+            insert_query = """INSERT INTO analytics (word , count) VALUES (%s , %s)""" 
+            record = (str(word) , count)
 
-        insert_query = """INSERT INTO analytics (Date , Time , Word_count) VALUES (%s , %s , %s)"""
-        record = (date , time , word_count)
-
-        cursor.execute(insert_query , record)
+            cursor.execute(insert_query , record)
 
         connection.commit()
 
