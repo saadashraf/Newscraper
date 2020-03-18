@@ -1,2 +1,2 @@
-#Newscraper
+# Newscraper
 An application that crawls a news website(https://www.theguardian.com/au in this application) to search for news relevant to "coronavirus" or "covid-19". After crawling, it gets the article URL , author name , Title and contents of the article, then saves the data in a csv file. The article content is then passed on to get the word count for that particular instance of the application, and among those, most common 10 words are taken. These most common words are stored in a postgresql database to store.
