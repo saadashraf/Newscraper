@@ -22,7 +22,7 @@ It takes all the data recorded from scraping.py and analytics.py, converts them 
 ### analytics.py
 This file takes all the article contents I got from scraping.py file. Here, I used nltk to get rid of all the redundant stop words.
 
-In the loop, I concatenated all the articles together. Then used Counter() method to count all the occurences of all the words, then cancelled the stop words and then returned the 10 most common words.
+In the loop, I concatenated all the articles together. Then used Counter() method to count all the occurences of all the words, cancelled the stop words and returned the 10 most common words.
 
 ### postgres_op.py
 This file uploads the word hit counts into a postgres database. It takes the word count returned from analytics.py. Then it get a connection to the remote database with relevant credentials and inserts the data into the database.
