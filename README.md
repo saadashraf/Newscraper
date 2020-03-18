@@ -17,7 +17,7 @@ After that, I filtered the articles based on the keywords "coronavirus" and "cov
 In the end, I took all the records into a list and returned the list.
 
 ### export_data.py
-It takes all the data recorded from scraping.py, converts them into a pandas dataframe, and publishes that into a csv file in the local directory. For now, among the two types of data exported (information and analytic), only the word hit count data is stored in a cloud postgres database.(Heroku postgres).
+It takes all the data recorded from scraping.py and analytics.py, converts them into pandas dataframe, and publishes that into csv file in the local directory. I used two separate functions for the two types of data. For now, among the two types of data exported (information and analytic), only the word hit count data is stored in a cloud postgres database.(Heroku postgres).
 
 ### analytics.py
 This file takes all the article contents I got from scraping.py file. Here, I used nltk to get rid of all the redundant stop words.
