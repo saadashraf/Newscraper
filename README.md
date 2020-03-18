@@ -15,3 +15,7 @@ It uses beautifulsoup4 framework to scrape the website. For now, I chose The Gua
 After that, I filtered the articles based on the keywords "coronavirus" and "covid-19". Then stored the article url. From the article url, I made another request object for that url. This was used to create a soup object with the webpage , and separate all the titles and store them. By similar fashion, using the same soup object, I separated the author name and the article contents.
 
 In the end, I took all the records into a list and returned the list.
+
+### export_data.py
+It takes all the data recorded from scraping.py, converts them into a pandas dataframe, and publishes that into a csv file in the local directory. For now, I didn't use any cloud storage for storing these data.
+
