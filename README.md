@@ -28,7 +28,7 @@ In the loop, I concatenated all the articles together. Then used Counter() metho
 This file uploads the word hit counts into a remote postgres database. It takes the word count returned from analytics.py. Then it gets a connection to the remote database with relevant credentials and inserts the data into the database.
 
 ### program.py
-This script calls all the files above. Executing program.py performs relevant data gathering, exports the data as csv, uses the contents of the articles to get the word count and finally, uploads the word count in the cloud postgres database.
+This script calls all the files above. Executing program.py performs relevant data gathering, exports the data as csv, uses the contents of the articles to get the word count, exports the word count data as csv and finally, uploads the word count in the cloud postgres database.
 
 ### The postgres formation
 In the postgres database, I created a table called analytics with 4 columns.
