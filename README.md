@@ -8,3 +8,10 @@ There are 5 python files used in the solution:
 - export_data.py - This file exports the gathered data into csv format.
 - analytics.py - Gets the word hit count data for the articles.
 - postgres_op.py - Uploads the hit count data into a postgres database.
+
+### scraping.py
+It uses beautifulsoup4 framework to scrape the website. For now, I chose The Guardian. Upon setting the url, we get a request for the website. Then use a soup object to find all the news articles.
+
+After that, I filtered the articles based on the keywords "coronavirus" and "covid-19". Then stored the article url. From the article url, I made another request object for that url. This was used to create a soup object with the webpage , and separate all the titles and store them. By similar fashion, using the same soup object, I separated the author name and the article contents.
+
+In the end, I took all the records into a list and returned the list.
