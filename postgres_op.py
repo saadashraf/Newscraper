@@ -1,17 +1,19 @@
 import psycopg2
-from datetime import datetime
 
+#uploading the data into postgres database
 def enter_word_count(word_count):
     try:
+        #making the connection using credentials
         connection = psycopg2.connect(user = "eciuvvjjmawypq",
                                     password = "f742d9624cca75affce31a69bf8d86a93a1f39cf233ff1a4e6c1cf163b328cd0",
                                     host = "ec2-3-229-210-93.compute-1.amazonaws.com",
                                     port = "5432",
                                     database = "d3bpa14p78p94e")
 
+        #getting a cursor object to perform postgres command
         cursor = connection.cursor()
-        #date = datetime.date(datetime.now())
-        #time = datetime.time(datetime.now())
+        
+        #performing insertion operation for each of the tuples
         for word , count in word_count:
             
             insert_query = """INSERT INTO analytics (word , count) VALUES (%s , %s)""" 
@@ -19,6 +21,7 @@ def enter_word_count(word_count):
 
             cursor.execute(insert_query , record)
 
+        print("Successfully added data")
         connection.commit()
 
 

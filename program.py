@@ -12,6 +12,6 @@ export_data.publish_dataset_csv(links , titles , authors , contents , "Output_da
 #Get the word count for the news contents
 word_count = analytics.word_count(contents)
 
+#storing the word_count into postgres
 postgres_op.enter_word_count(word_count)
 
-print(type(word_count))
